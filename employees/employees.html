@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employees - Main</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ </head>
+ <body class="bg-gray-100 font-sans leading-normal tracking-normal" onload="buildUsersTable()">
+
+    <header class="flex justify-center items-center h-16 bg-blue-500 text-white">
+      <h1 class="text-xl">Factory Management Site</h1>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+      <div class="flex flex-wrap justify-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = '../index.html';">Homepage</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = 'employees.html';">Employees</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = '../departments/departments.html';">Departments</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = '../shifts/shifts.html';">Shifts</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = '../users/users.html';">Users</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = '../index.html';">Logout</button>
+      </div>
+      <div class="mt-8">
+        <h3 class="text-lg font-semibold mb-4" id="user-name">Welcome, User</h3>
+        <label for="department" class="block text-sm font-medium text-gray-700">Filter employees by department:</label>
+        <select name="departments" id="departments" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+          <option value="all">All</option>
+          <!-- Options will be populated by JavaScript -->
+        </select>
+        <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4" onclick="location.href = 'new-employee';">
+          Add New Employee
+        </button>
+        <br /><br />
+        <table class="w-full bg-white shadow-md rounded mt-6">
+          <thead>
+            <tr>
+              <th class="border px-4 py-2">Full Name</th>
+              <th class="border px-4 py-2">Department</th>
+              <th class="border px-4 py-2">Shifts</th>
+            </tr>
+          </thead>
+          <tbody id="users-table">
+            <!-- Table rows will be populated by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <script>
+      function buildUsersTable(department = "all") {
+        let usersTable = document.getElementById("users-table");
+
+        // Fake data
+        const usersData = [
+          {
+            _id: '1',
+            firstName: 'John',
+            lastName: 'Doe',
+            departmentID: { name: 'Engineering' },
+            shifts: [
+              { date: '2023-04-01', startingHour: '08:00', endingHour: '16:00' },
+              { date: '2023-04-02', startingHour: '16:00', endingHour: '00:00' },
+            ]
+          },
+          {
+            _id: '2',
+            firstName: 'Jane',
+            lastName: 'Smith',
+            departmentID: { name: 'HR' },
+            shifts: [
+              { date: '2023-04-01', startingHour: '08:00', endingHour: '16:00' },
+            ]
+          },
+          // ... more users
+        ];
+
+        let departmentsList = [];
+        let filteredUsers = usersData;
+
+        if (department !== "all") {
+          filteredUsers = usersData.filter(user => user.departmentID.name === department);
+        }
+
+        filteredUsers.forEach((user) => {
+          let row = usersTable.insertRow(-1);
+          row.setAttribute("id", user._id);
+
+          let fullNameCell = row.insertCell(0);
+          let departmentCell = row.insertCell(1);
+          let shiftsCell = row.insertCell(2);
+
+          fullNameCell.innerHTML = `<a href="javascript: void(0)" class="text-blue-500 hover:underline">${user.firstName} ${user.lastName}</a>`;
+          fullNameCell.addEventListener("click", () => {
+            sessionStorage["editEmployeeID"] = user._id;
+            location.href = "./edit-employee";
+          });
+          departmentCell.innerHTML = user.departmentID.name;
+
+          let shiftsHTML = '';
+          user.shifts.forEach((shift) => {
+            shiftsHTML += `<div class="mb-1"><span class="text-gray-600">${shift.date}: </span><span class="text-gray-800">${shift.startingHour} - ${shift.endingHour}</span></div>`;
+          });
+          shiftsCell.innerHTML = shiftsHTML;
+        });
+
+        // Populate the departments dropdown
+        usersData.forEach((user) => {
+          if (!departmentsList.includes(user.departmentID.name)) {
+            departmentsList.push(user.departmentID.name);
+          }
+        });
+        const departmentsDropdown = document.getElementById('departments');
+        departmentsList.forEach((dept) => {
+          const option = document.createElement('option');
+          option.value = dept;
+          option.textContent = dept;
+          departmentsDropdown.appendChild(option);
+        });
+
+        const name = sessionStorage["name"] || "User";
+        document.getElementById("user-name").innerText = `Welcome, ${name}`;
+      }
+
+      // Event listener for department filter change
+      document.getElementById('departments').addEventListener('change', (event) => {
+        const selectedDepartment = event.target.value;
+        buildUsersTable(selectedDepartment);
+      });
+    </script>
+ </body>
+</html>
+

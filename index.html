@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Page</title>
+    <!-- Include Tailwind CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+ </head>
+ <body class="bg-gray-100 font-sans leading-normal tracking-normal" onload="displayWelcomeMessage()">
+
+    <header class="flex justify-center items-center h-16 bg-blue-500 text-white">
+      <h1 class="text-xl">Factory Management Site</h1>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+      <div class="flex flex-wrap justify-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = 'index.html';">Homepage</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = 'employees/employees.html';">Employees</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = 'departments/departments.html';">Departments</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = 'shifts/shifts.html';">Shifts</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = 'users/users.html';">Users</button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" onclick="location.href = 'users/logout.html';">Logout</button>
+      </div>
+      <div class="mt-8">
+        <h3 class="text-lg font-semibold mb-4" id="user-name">Welcome, User</h3>
+        <div class="prose prose-sm max-w-none">
+          <p>
+            Welcome to the Factory Management Site! We provide a comprehensive
+            platform to help you easily:
+            <ul class="list-disc list-inside">
+              <li><b>Log In Securely:</b> Our login uses secure authentication to keep your data safe. Once logged in, you'll see your name on every page.</li>
+              <li><b>Manage Employees:</b> View all employees in a sortable table. Easily edit employee details, delete employees, and add new ones.</li>
+              <li><b>Organize Departments:</b> See all departments and who works in each one. Create new departments and assign employees.</li>
+              <li><b>Schedule Shifts:</b> Schedule shifts for employees and assign them to shifts. Easily create and modify shifts.</li>
+              <li><b>Stay Within Limits:</b> We limit actions per user per day to ensure smooth operations. You'll be logged out when your daily actions are used.</li>
+              <li><b>View Users:</b> See details on all registered users and the actions they have remaining. Our intuitive interface makes it simple to handle all your employee management needs.</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      function displayWelcomeMessage() {
+        const name = sessionStorage["name"] || "User";
+        document.getElementById("user-name").innerText = `Welcome, ${name}`;
+      }
+    </script>
+ </body>
+</html>
