@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
 
   const login = async (email, username) => {
     setIsLoading(true);
@@ -38,7 +40,8 @@ export const useLogin = () => {
       // update loading state
       setIsLoading(false);
 
-      window.location.href = "/welcome";
+      
+      navigate("/welcome")
     }
   };
 

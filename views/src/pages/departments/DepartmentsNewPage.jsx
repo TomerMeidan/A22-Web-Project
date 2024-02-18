@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const DepartmentsNewPage = () => {
   const [departmentName, setDepartmentName] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
   const { user } = useAuthContext();
-
+  const navigate = useNavigate()
   const saveDepartment = async () => {
     const data = {
       name: departmentName,
@@ -58,7 +59,7 @@ const DepartmentsNewPage = () => {
           Save
         </button>
         <button
-          onClick={() => (window.location.href = "./departments")}
+          onClick={() => (navigate("/departments"))}
           className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         >
           Cancel
