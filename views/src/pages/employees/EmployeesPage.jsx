@@ -14,7 +14,7 @@ const EmployeesPage = () => {
   useEffect(() => {
     const getAllUsersHandler = async () => {
       try {
-        const response = await fetch("https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/employees", {
+        const response = await fetch("http://localhost:3000/employees", {
           headers: { Authorization: `Bearer ${user.token}` },
           method: "GET",
         });

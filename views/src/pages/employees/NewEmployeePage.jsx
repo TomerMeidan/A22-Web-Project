@@ -45,7 +45,7 @@ const NewEmployeePage = () => {
 
   const addEmployee = async () => {
     try {
-      const response = await fetch("https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/employees/new", {
+      const response = await fetch("http://localhost:3000/employees/new", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -62,7 +62,7 @@ const NewEmployeePage = () => {
 
   const getAllShifts = async () => {
     try {
-      const response = await fetch("https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/shifts", {
+      const response = await fetch("http://localhost:3000/shifts", {
         method: "GET",
         headers: { Authorization: `Bearer ${user.token}` },
       });
