@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "name": "factory-management-backend",
+  "builds": [
+    {
+      "src": "./server-side/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Origin, X-Requested-With, Content-Type, Accept"
+        }
+      ]
+    }
+  ],
+  "env": {
+    "MONGODB_USER": "tommei",
+    "MONGODB_PASS": "tomer1A2B",
+    "PORT": "3000",
+    "SECRET": "ghk23g4kj324hkj342hkjlfghg9843rhoiwehfklaho84ru3984thlakskjgh43h23io5y798gsy4ilwh"
+  }
+}
