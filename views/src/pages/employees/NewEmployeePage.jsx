@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const NewEmployeePage = () => {
   const [employee, setEmployee] = useState({
@@ -11,6 +12,7 @@ const NewEmployeePage = () => {
   const [shifts, setShifts] = useState([]);
   const [selectedShifts, setSelectedShifts] = useState([]);
   const { user } = useAuthContext();
+  const navigate = useNavigate()
 
   useEffect(() => {
     const addNewEmployeeOnLoadHandler = async () => {
@@ -197,7 +199,7 @@ const NewEmployeePage = () => {
           Add
         </button>
         <button
-          onClick={() => (window.location.href = "/employees")}
+          onClick={() => (navigate("/employees"))}
           className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         >
           Cancel

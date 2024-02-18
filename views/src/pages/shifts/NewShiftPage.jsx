@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 const NewShiftPage = () => {
   const [startingHour, setStartingHour] = useState("0");
@@ -7,7 +8,7 @@ const NewShiftPage = () => {
   const [startingDate, setStartingDate] = useState("1994-12-20");
   const [responseMessage, setResponseMessage] = useState("");
   const { user } = useAuthContext();
-
+  const navigate = useNavigate()
   const hoursAreValid = (start, end) => {
     const startingHour = parseInt(start);
     const endingHour = parseInt(end);
@@ -147,7 +148,7 @@ const NewShiftPage = () => {
           Save
         </button>
         <button
-          onClick={() => (window.location.href = "./shifts")}
+          onClick={() => (navigate("/shifts"))}
           className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
         >
           Cancel
