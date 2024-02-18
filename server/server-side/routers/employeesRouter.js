@@ -19,7 +19,7 @@ employeesRouter.get("/edit/:id", async (req, res) => {
 });
 
 // Action: GET
-// Entry Point: localhost:3000/employees/not_in/shift/:id
+// Entry Point: https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/employees/not_in/shift/:id
 // Info: Get all employees data that are not in a specific shift
 employeesRouter.get("/not_in/shift/:id", async (req, res) => {
   try {

@@ -23,7 +23,7 @@ const DepartmentsEditPage = () => {
     // TODO Change to web server here
 
     const response = await fetch(
-      `http://localhost:3000/departments/edit/${id}`,
+      `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/departments/edit/${id}`,
       { headers: { Authorization: `Bearer ${user.token}` }, method: "GET" }
     );
     const department = await response.json();
@@ -40,7 +40,7 @@ const DepartmentsEditPage = () => {
     // TODO Change to web server here
 
     const response = await fetch(
-      `http://localhost:3000/employees/not_in/department/${id}`,
+      `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/employees/not_in/department/${id}`,
       {
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -63,7 +63,7 @@ const DepartmentsEditPage = () => {
       // TODO Change to web server here
 
       const response = await fetch(
-        `http://localhost:3000/departments/edit/${departmentID}`,
+        `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/departments/edit/${departmentID}`,
         {
           method: "PUT",
           headers: {
@@ -86,7 +86,7 @@ const DepartmentsEditPage = () => {
       // TODO Change to web server here
 
       const response = await fetch(
-        `http://localhost:3000/departments/edit/${departmentID}`,
+        `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/departments/edit/${departmentID}`,
         { headers: { Authorization: `Bearer ${user.token}` }, method: "DELETE" }
       );
       const message = await response.json();
@@ -111,7 +111,7 @@ const DepartmentsEditPage = () => {
       // TODO Change to web server here
 
       const response = await fetch(
-        `http://localhost:3000/employees/${selectedEmployee}/switch/department/`,
+        `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/employees/${selectedEmployee}/switch/department/`,
         {
           method: "PUT",
           headers: {

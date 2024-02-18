@@ -29,24 +29,8 @@ app.set("views", dirname);
 // Global server variables
 const PORT = process.env.PORT || 3000;
 
-// Get Current Time
-// const midnightTime = () => {
-//   const midnightTime = new Date();
-//   midnightTime.setHours(24);
-//   midnightTime.setMinutes(0);
-//   midnightTime.setSeconds(0);
-
-//   return midnightTime.getTime() - new Date().getTime();
-// };
-
 // Database Connection
 db.connectDB(uri);
-
-// Session collection storage on mongoDB
-// const sessionStorage = new MongoDBSession({
-//   uri: uri,
-//   collection: "mySessions",
-// });
 
 // Middlewares Section
 // Default Middlewares
@@ -65,25 +49,12 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(cors());
 
-// Sessions Middleware
-// app.use(
-//   session({
-//     secret: "chocolate rain",
-//     resave: false,
-//     saveUninitialized: true,
-//     store: sessionStorage,
-//     cookie: {
-//       maxAge: midnightTime(), // Set the cookie expiration to midnight
-//     },
-//   })
-// );
-
 // Routers Section
 // Login router page related requests
 app.use("/login", loginRouter);
 
 // TODO Fix the auth system
-app.use(isAuth);
+//app.use(isAuth);
 
 // Employees router page related requests
 app.use("/employees", employeesRouter);

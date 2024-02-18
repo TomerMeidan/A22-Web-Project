@@ -21,7 +21,7 @@ const EditShiftPage = () => {
 
   const loadSelectedShift = async (id) => {
     // TODO Change to web server
-    const response = await fetch(`http://localhost:3000/shifts/${id}`, {
+    const response = await fetch(`https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/shifts/${id}`, {
       headers: { Authorization: `Bearer ${user.token}` },
       method: "GET",
     });
@@ -36,7 +36,7 @@ const EditShiftPage = () => {
   const buildNoneShiftEmployeesList = async (id) => {
     // TODO Change to web server
     const response = await fetch(
-      `http://localhost:3000/employees/not_in/shift/${id}`,
+      `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/employees/not_in/shift/${id}`,
       { headers: { Authorization: `Bearer ${user.token}` }, method: "GET" }
     );
     const employees = await response.json();
@@ -54,7 +54,7 @@ const EditShiftPage = () => {
     try {
       // TODO Change to web server
       const response = await fetch(
-        `http://localhost:3000/shifts/edit/${shiftID}`,
+        `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/shifts/edit/${shiftID}`,
         {
           method: "PUT",
           headers: {
@@ -85,7 +85,7 @@ const EditShiftPage = () => {
     try {
       // TODO Change to web server
       const response = await fetch(
-        `http://localhost:3000/employees/${selectedEmployee}/switch/shift/`,
+        `https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/employees/${selectedEmployee}/switch/shift/`,
         {
           method: "PUT",
           headers: {

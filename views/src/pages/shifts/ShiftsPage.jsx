@@ -11,7 +11,7 @@ const ShiftsPage = () => {
     const getAllShiftsHandler = async () => {
       try {
         // TODO Change to web server
-        const response = await fetch("http://localhost:3000/shifts", {
+        const response = await fetch("https://f706-2a00-a041-21c7-b000-a162-792c-effc-ff83.ngrok-free.app/shifts", {
           headers: { Authorization: `Bearer ${user.token}` },
           method: "GET",
         });
