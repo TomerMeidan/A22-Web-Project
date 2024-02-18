@@ -21,7 +21,7 @@ const EditShiftPage = () => {
 
   const loadSelectedShift = async (id) => {
     // TODO Change to web server
-    const response = await fetch(`http://localhost:3000/shifts/${id}`, {
+    const response = await fetch(`https://a22-web-project.onrender.com/shifts/${id}`, {
       headers: { Authorization: `Bearer ${user.token}` },
       method: "GET",
     });
@@ -36,7 +36,7 @@ const EditShiftPage = () => {
   const buildNoneShiftEmployeesList = async (id) => {
     // TODO Change to web server
     const response = await fetch(
-      `http://localhost:3000/employees/not_in/shift/${id}`,
+      `https://a22-web-project.onrender.com/employees/not_in/shift/${id}`,
       { headers: { Authorization: `Bearer ${user.token}` }, method: "GET" }
     );
     const employees = await response.json();
@@ -54,7 +54,7 @@ const EditShiftPage = () => {
     try {
       // TODO Change to web server
       const response = await fetch(
-        `http://localhost:3000/shifts/edit/${shiftID}`,
+        `https://a22-web-project.onrender.com/shifts/edit/${shiftID}`,
         {
           method: "PUT",
           headers: {
@@ -85,7 +85,7 @@ const EditShiftPage = () => {
     try {
       // TODO Change to web server
       const response = await fetch(
-        `http://localhost:3000/employees/${selectedEmployee}/switch/shift/`,
+        `https://a22-web-project.onrender.com/employees/${selectedEmployee}/switch/shift/`,
         {
           method: "PUT",
           headers: {

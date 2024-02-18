@@ -11,7 +11,7 @@ const ShiftsPage = () => {
     const getAllShiftsHandler = async () => {
       try {
         // TODO Change to web server
-        const response = await fetch("http://localhost:3000/shifts", {
+        const response = await fetch("https://a22-web-project.onrender.com/shifts", {
           headers: { Authorization: `Bearer ${user.token}` },
           method: "GET",
         });

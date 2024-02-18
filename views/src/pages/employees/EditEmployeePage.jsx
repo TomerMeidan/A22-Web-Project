@@ -15,7 +15,7 @@ const EditEmployeePage = () => {
       try {
         const id = sessionStorage.getItem("editEmployeeID");
         const response = await fetch(
-          `http://localhost:3000/employees/edit/${id}`,
+          `https://a22-web-project.onrender.com/employees/edit/${id}`,
           {
             method: "GET",
             headers: { Authorization: `Bearer ${user.token}` },
@@ -27,7 +27,7 @@ const EditEmployeePage = () => {
           shifts: user2.shifts.map((shift) => shift._id),
         });
 
-        const allShiftsResponse = await fetch("http://localhost:3000/shifts", {
+        const allShiftsResponse = await fetch("https://a22-web-project.onrender.com/shifts", {
           method: "GET",
           headers: { Authorization: `Bearer ${user.token}` },
         });
@@ -61,7 +61,7 @@ const EditEmployeePage = () => {
     try {
       const id = sessionStorage.getItem("editEmployeeID");
       const response = await fetch(
-        `http://localhost:3000/employees/edit/${id}`,
+        `https://a22-web-project.onrender.com/employees/edit/${id}`,
         {
           method: "PUT",
           headers: {
@@ -85,7 +85,7 @@ const EditEmployeePage = () => {
     try {
       const id = sessionStorage.getItem("editEmployeeID");
       const response = await fetch(
-        `http://localhost:3000/employees/edit/${id}`,
+        `https://a22-web-project.onrender.com/employees/edit/${id}`,
         { headers: { Authorization: `Bearer ${user.token}` }, method: "DELETE" }
       );
       const result = await response.json();

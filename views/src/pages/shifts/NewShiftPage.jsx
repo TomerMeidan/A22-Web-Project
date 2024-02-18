@@ -52,7 +52,7 @@ const NewShiftPage = () => {
     };
     try {
       // TODO Change to web server
-      const response = await fetch("http://localhost:3000/shifts/new", {
+      const response = await fetch("https://a22-web-project.onrender.com/shifts/new", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

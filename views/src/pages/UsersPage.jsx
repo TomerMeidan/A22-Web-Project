@@ -8,7 +8,7 @@ const UsersPage = () => {
   useEffect(() => {
     const getAllUsersHandler = async () => {
       try {
-        const response = await fetch("http://localhost:3000/users", {
+        const response = await fetch("https://a22-web-project.onrender.com/users", {
           headers: { Authorization: `Bearer ${user.token}` },
           method: "GET",
         });

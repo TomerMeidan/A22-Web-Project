@@ -19,7 +19,7 @@ employeesRouter.get("/edit/:id", async (req, res) => {
 });
 
 // Action: GET
-// Entry Point: http://localhost:3000/employees/not_in/shift/:id
+// Entry Point: https://a22-web-project.onrender.com/employees/not_in/shift/:id
 // Info: Get all employees data that are not in a specific shift
 employeesRouter.get("/not_in/shift/:id", async (req, res) => {
   try {

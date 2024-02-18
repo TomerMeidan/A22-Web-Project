@@ -45,7 +45,7 @@ const NewEmployeePage = () => {
 
   const addEmployee = async () => {
     try {
-      const response = await fetch("http://localhost:3000/employees/new", {
+      const response = await fetch("https://a22-web-project.onrender.com/employees/new", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -62,7 +62,7 @@ const NewEmployeePage = () => {
 
   const getAllShifts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/shifts", {
+      const response = await fetch("https://a22-web-project.onrender.com/shifts", {
         method: "GET",
         headers: { Authorization: `Bearer ${user.token}` },
       });

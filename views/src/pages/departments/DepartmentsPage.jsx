@@ -11,7 +11,7 @@ const DepartmentsMainPage = () => {
     const getAllDepartmentsHandler = async () => {
       try {
         // TODO Change to live server
-        const response = await fetch("http://localhost:3000/departments", {
+        const response = await fetch("https://a22-web-project.onrender.com/departments", {
           headers: {
             Authorization: `Bearer ${user.token}`,
             method: "GET",

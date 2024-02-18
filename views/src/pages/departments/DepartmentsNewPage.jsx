@@ -14,7 +14,7 @@ const DepartmentsNewPage = () => {
 
     try {
       // TODO Change to web server here
-      const response = await fetch("http://localhost:3000/departments/new", {
+      const response = await fetch("https://a22-web-project.onrender.com/departments/new", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${user.token}`,
