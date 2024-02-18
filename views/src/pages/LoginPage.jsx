@@ -40,7 +40,7 @@ const LoginPage = () => {
             className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div>
           <button
             type="submit"
             disabled={isLoading}
@@ -49,7 +49,7 @@ const LoginPage = () => {
           >
             Login
           </button>
-          <div className="ml-4">
+          {/* <div className="ml-4">
             <input
               type="checkbox"
               id="autofill"
@@ -57,7 +57,7 @@ const LoginPage = () => {
               className="rounded text-blue-600 focus:outline-none focus:ring-blue-500"
             />
             <label htmlFor="autofill" className="ml-2 text-sm text-gray-600">Autofill (For Debug)</label>
-          </div>
+          </div> */}
         </div>
       </form>
       {error && <div className="mt-4 text-red-500">{error}</div>}
