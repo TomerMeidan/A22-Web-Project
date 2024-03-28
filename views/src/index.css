@@ -2,6 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+ body.dark {
+    @apply bg-gray-900 text-white; /* Ensure body text is white in dark mode */
+
+    /* Styles for table cells in dark mode */
+    table {
+      @apply divide-gray-700; /* Divider color for table rows */
+    }
+
+    table th, table td {
+      @apply bg-gray-800 text-white; /* Background and text color for table headers and cells in dark mode */
+    }
+
+    /* Styles for comboboxes in dark mode */
+    select {
+      @apply bg-gray-800 text-white border-gray-600; /* Background, text color, and border color for comboboxes in dark mode */
+    }
+
+    /* Styles for text boxes in dark mode */
+    input[type="text"] {
+      @apply bg-gray-800 text-white border-gray-600; /* Background, text color, and border color for text boxes in dark mode */
+    }
+
+    /* Optional: Styles for text boxes and comboboxes in light mode */
+    @layer components {
+      input[type="text"], select {
+        @apply bg-white text-gray-900 border-gray-300; /* Background, text color, and border color for text boxes and comboboxes in light mode */
+      }
+    }
+ }
+}
+
+
+
 .flip-button {
     perspective:  1000px;
     transition: transform  0.6s;
